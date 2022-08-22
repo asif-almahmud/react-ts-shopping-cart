@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Instant Coffee",
+    "price": "15.70",
+    "imgUrl": "https://images.unsplash.com/photo-1626836937739-3037bda1b661?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Bread",
+    "price": "2.99",
+    "imgUrl": "https://images.unsplash.com/photo-1552056413-b8b5eed0170b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fGJyZWFkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 3,
+    "name": "Curry Paste",
+    "price": "10.00",
+    "imgUrl": "https://images.unsplash.com/photo-1629666451094-8908989cae90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y3VycnklMjBwYXN0ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 4,
+    "name": "Okra",
+    "price": "3.00",
+    "imgUrl": "https://images.unsplash.com/photo-1425543103986-22abb7d7e8d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8b2tyYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 5,
+    "name": "Cashew Butter",
+    "price": "25.00",
+    "imgUrl": "https://images.unsplash.com/photo-1580750882617-9ee40463d9f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8b2lsJTIwJTIwJTIwcGVhbnV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 6,
+    "name": "Potatoes",
+    "price": "5.00",
+    "imgUrl": "https://images.unsplash.com/photo-1603048719539-9ecb4aa395e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cG90YXRvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 7,
+    "name": "Cheese",
+    "price": "20.00",
+    "imgUrl": "https://images.unsplash.com/photo-1624806992066-5ffcf7ca186b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+  },
+  {
+    "id": 8,
+    "name": "Honey",
+    "price": "12.00",
+    "imgUrl": "https://images.unsplash.com/photo-1481900369621-54a7facacc6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bXVuY2hpZXMlMjBob25leSUyMHN3ZWV0JTIwdHJhaWwlMjBtaXh8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 9,
+    "name": "Oatmeal",
+    "price": "8.99",
+    "imgUrl": "https://images.unsplash.com/photo-1586810512929-6b8659fde098?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8b2F0bWVhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+  },
+  {
+    "id": 10,
+    "name": "Tomatoes",
+    "price": "8.00",
+    "imgUrl": "https://images.unsplash.com/photo-1658319204254-7ea104bca2e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRyaWVkJTIwdG9tYXRvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+  }
+]
