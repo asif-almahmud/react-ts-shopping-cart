@@ -1,0 +1,64 @@
+.c-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.625rem;
+  height: 1.625rem;
+}
+
+/* cart */
+.smooth-show-cart-count {
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  bottom: -25%;
+  right: -35%;
+  transform: scale(1);
+  opacity: 1;
+  animation-name: smoothShow;
+  animation-duration: 0.5s;
+}
+
+@keyframes smoothShow {
+  from {
+    bottom: 15%;
+    right: 5%;
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    bottom: -25%;
+    right: -35%;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.smooth-hide-cart-count {
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  bottom: -25%;
+  right: -35%;
+  transform: scale(0);
+  opacity: 0;
+  animation-name: smoothHide;
+  animation-duration: 0.5s;
+}
+
+@keyframes smoothHide {
+  from {
+    bottom: -25%;
+    right: -35%;
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    bottom: 15%;
+    right: 5%;
+    transform: scale(0);
+    opacity: 0;
+  }
+}

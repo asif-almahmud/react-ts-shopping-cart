@@ -15,13 +15,14 @@ export interface IStoreItemProps {
 export function StoreItem(props: IStoreItemProps) {
   const { id, name, price, imgUrl } = props;
   const {
-    getItemQuantity,
+    findItemQuantity,
+    addToCart,
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
   } = useContextValues();
 
-  const quantity: number = getItemQuantity(id);
+  const quantity = findItemQuantity(id);
 
   return (
     <Card className="h-100">
@@ -42,7 +43,16 @@ export function StoreItem(props: IStoreItemProps) {
               style={{
                 height: "2rem",
               }}
-              onClick={() => increaseCartQuantity(id)}
+              onClick={() =>
+                addToCart({
+                  id,
+                  name,
+                  price: Number(price),
+                  formattedPrice: formatCurrency(Number(price)),
+                  quantity: 1,
+                  imgUrl,
+                })
+              }
             >
               {" "}
               + Add To Cart

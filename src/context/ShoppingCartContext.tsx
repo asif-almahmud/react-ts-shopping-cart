@@ -1,4 +1,12 @@
-import { useState, createContext, useContext, ReactNode } from "react";
+import {
+  useState,
+  createContext,
+  useContext,
+  ReactNode,
+  useEffect,
+} from "react";
+import { ShoppingCart } from "../components/ShoppingCart";
+import { localValues } from "../utilities/localValues";
 
 type ShoppingCartProviderProps = {
   children: ReactNode;
@@ -6,18 +14,26 @@ type ShoppingCartProviderProps = {
 
 type Id = number | string;
 
-type CartItem = {
+export type CartItem = {
   id: Id;
+  name: string;
+  price: number;
+  formattedPrice: string;
+  imgUrl: string;
   quantity: number;
 };
 
 type ShoppingCartContext = {
   cartItems: CartItem[];
-  getItemQuantity: (id: number) => number;
-  increaseCartQuantity: (id: number) => void;
-  decreaseCartQuantity: (id: number) => void;
-  removeFromCart: (id: number) => void;
-  resetCart: (id: number) => void;
+  cartQuantity: number;
+  findItemQuantity: (id: Id) => number;
+  addToCart: (item: CartItem) => void;
+  increaseCartQuantity: (id: Id) => void;
+  decreaseCartQuantity: (id: Id) => void;
+  removeFromCart: (id: Id) => void;
+  resetCart: (id: Id) => void;
+  cartIsShown: boolean;
+  showCart: () => void;
 };
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -28,30 +44,35 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartIsShown, setCartIsShown] = useState<boolean>(false);
 
-  function getItemQuantity(id: Id) {
+  const cartQuantity = cartItems.reduce(
+    (quantity, item) => quantity + item.quantity,
+    0
+  );
+
+  function findItemQuantity(id: Id) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
 
+  function addToCart(item: CartItem) {
+    setCartItems((prevItems) => [...prevItems, item]);
+  }
+
   function increaseCartQuantity(id: Id) {
-    setCartItems((recentItems) => {
-      console.log({ find: recentItems.find((item) => item.id === id) });
-      if (recentItems.find((item) => item.id === id) === undefined) {
-        return [...recentItems, { id, quantity: 1 }];
-      } else {
-        return recentItems.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
+    setCartItems((prevItems) => {
+      return prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      );
     });
   }
 
   function decreaseCartQuantity(id: Id) {
-    setCartItems((recentItems) => {
-      if (recentItems.find((item) => item.id === id)?.quantity === 1) {
-        return recentItems.filter((item) => item.id !== id);
+    setCartItems((prevItems) => {
+      if (prevItems.find((item) => item.id === id)?.quantity === 1) {
+        return prevItems.filter((item) => item.id !== id);
       } else {
-        return recentItems.map((item) =>
+        return prevItems.map((item) =>
           item.id === id ? { ...item, quantity: item.quantity - 1 } : item
         );
       }
@@ -59,25 +80,48 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   }
 
   function removeFromCart(id: Id) {
-    setCartItems((recentItems) => recentItems.filter((item) => item.id !== id));
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   }
 
   function resetCart(id: Id) {
     setCartItems([]);
   }
 
+  function showCart() {
+    setCartIsShown((prev) => !prev);
+  }
+
+  useEffect(() => {
+    if (localValues.get("cartItems")) {
+      setCartItems(localValues.get("cartItems"));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (cartQuantity > 0) {
+      localValues.set("cartItems", cartItems);
+    } else {
+      localValues.remove("cartItems");
+    }
+  }, [cartQuantity]);
+
   return (
     <ShoppingCartContext.Provider
       value={{
         cartItems,
-        getItemQuantity,
+        cartQuantity,
+        findItemQuantity,
+        addToCart,
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
         resetCart,
+        cartIsShown,
+        showCart,
       }}
     >
       {children}
+      <ShoppingCart />
     </ShoppingCartContext.Provider>
   );
 }
