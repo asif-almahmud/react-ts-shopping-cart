@@ -7,8 +7,9 @@ import { Store } from "./pages/Store";
 import { Navbar } from "./components/Navbar";
 import Fallback from "./components/Fallback";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import About from "./pages/About";
 
-const LazyAbout = React.lazy(() => import("./pages/About"));
+// const LazyAbout = React.lazy(() => import("./pages/About"));
 
 function App() {
   return (
@@ -18,14 +19,7 @@ function App() {
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/" element={<Store />} />
-          <Route
-            path="/about"
-            element={
-              <React.Suspense fallback={<Fallback />}>
-                <LazyAbout />
-              </React.Suspense>
-            }
-          />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Container>
     </ShoppingCartProvider>
