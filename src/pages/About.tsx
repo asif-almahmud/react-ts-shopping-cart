@@ -8,7 +8,10 @@ export default function About({}: Props) {
       <h2 className="section-header">About</h2>
       This app demonstrates a typical e-commerce shopping cart. I have used
       react, typescript, context api, bootstrap and react-bootstrap to develop
-      this application. <a href="">Contact me</a>
+      this application.{" "}
+      {/* <a href="https://portfolio-asif-al-mahmud.onrender.com/#contact">
+        Contact me
+      </a> */}
     </div>
   );
 }
