@@ -8,8 +8,8 @@ type Props = {};
 export function Store({}: Props) {
   return (
     <>
-      <h1>Store</h1>
-      <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+      <h1 className="section-header">Store</h1>
+      <Row xs={1} sm={2} md={3} lg={4} className="g-4 mb-5">
         {storeItems.map((item) => (
           <Col key={item.id}>
             <StoreItem {...item} />

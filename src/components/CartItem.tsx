@@ -28,16 +28,10 @@ export const CartItem = (props: ICartItemProps) => {
         style={{ width: "125px", height: "75px", objectFit: "cover" }}
       />
       <div className="me-auto">
-        <div>
-          {name}{" "}
-          {quantity > 1 && (
-            <span className="text-muted" style={{ fontSize: "0.8125rem" }}>
-              x{quantity}
-            </span>
-          )}
-        </div>
+        <div>{name} </div>
         <div className="text-muted" style={{ fontSize: "0.9375rem" }}>
-          {formattedPrice}
+          {formattedPrice}{" "}
+          {quantity > 1 && <span className="text-muted">x {quantity}</span>}
         </div>
         <div className="d-flex align-items-center gap-2">
           <Button
