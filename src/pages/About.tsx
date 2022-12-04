@@ -9,8 +9,8 @@ export default function About({}: Props) {
       This application demonstrates a typical e-commerce shopping cart. I have
       used react, typescript, context api, bootstrap and react-bootstrap to
       develop this application.{" "}
-      <a href="https://portfolio-asif-al-mahmud.onrender.com/">
-        See more projects
+      <a href="https://portfolio-asif-al-mahmud.onrender.com/" target="_blank">
+        My portfolio
       </a>
     </div>
   );
